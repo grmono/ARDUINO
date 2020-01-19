@@ -1,20 +1,21 @@
 #include "Watchdog.h"
-#include <util/atomic.h>
 
-Watchdog::Watchdog(Motor *m, Display *d) {
+Watchdog::Watchdog(Motor *m, Display *d, Calibration *c) {
     this->motor = m;
     this->display = d;
+    this->calibration = c;
 }
 
-void Watchdog::cycle() {
-    static unsigned long last_tick = millis();
-    unsigned long now = millis(), diff = get_period(last_tick, now);
-
-    if (diff >= WATCHDOG_TIMEOUT) {
+void Watchdog::cycle(unsigned long now) {
+    static unsigned long last_tick = now;
+    if (get_period(last_tick, now) >= WATCHDOG_TIMEOUT) {
         unsigned int pos_diff = motor->get_position_change();
         MotorState state = motor->get_state();
 
         if (pos_diff <= WATCHDOG_DEADLOCK_CHANGE && state != OFF) {
+            if (calibration->is_calibrating()) {
+                motor->off();
+            }
             error(1);
 #ifdef __DEBUG__
             Serial.print("w-1 stop d:");

@@ -4,6 +4,7 @@
 #include <Service.h>
 #include <Motor.h>
 #include <Display.h>
+#include <Calibration.h>
 
 /**
  * WATCHDOG_TIMEOUT     represents timeout in millis for watchdog to perform its checks
@@ -32,13 +33,14 @@ class Watchdog : Service {
 private:
     Motor *motor = nullptr;
     Display *display = nullptr;
+    Calibration *calibration = nullptr;
     uint8_t error_count = 0;
 protected:
     void error(uint8_t cause);
 public:
-    Watchdog(Motor *m, Display *d);
+    Watchdog(Motor *m, Display *d, Calibration *c);
 
-    void cycle() override;
+    void cycle(unsigned long now) override;
 };
 
 

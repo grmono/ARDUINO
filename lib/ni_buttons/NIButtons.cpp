@@ -20,8 +20,18 @@ NIButton *NIButton::long_press(long delay) {
     return this;
 }
 
+NIButton *NIButton::llong_press(long delay) {
+    _button.longHoldTime(delay);
+    return this;
+}
+
 NIButton *NIButton::on_long_press(void (*_on_pressed)()) {
     this->_on_long_press = _on_pressed;
+    return this;
+}
+
+NIButton *NIButton::on_llong_press(void (*_on_pressed)()) {
+    this->_on_llong_press = _on_pressed;
     return this;
 }
 
@@ -82,6 +92,17 @@ void NIButton::cycle() {
         }
 #ifdef __DEBUG__
         Serial.print("b: long: ");
+        Serial.print(_gpio);
+        Serial.println();
+#endif
+        _held = true;
+    }
+    if (_button.heldLong()) {
+        if (_on_llong_press) {
+            this->_on_llong_press();
+        }
+#ifdef __DEBUG__
+        Serial.print("b: llong: ");
         Serial.print(_gpio);
         Serial.println();
 #endif

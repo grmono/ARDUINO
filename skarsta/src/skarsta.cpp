@@ -1,6 +1,7 @@
 #include <vector>
 #include <Arduino.h>
 #include <Display.h>
+#include <Calibration.h>
 #include <Keypad.h>
 #include <Watchdog.h>
 
@@ -52,8 +53,9 @@ MotorBridge motor(ENCODER_PIN_CLK, ENCODER_PIN_DIO, R_EN, L_EN, R_PWM, L_PWM);
 MotorRelay motor(ENCODER_PIN_CLK, ENCODER_PIN_DIO, POWER_RELAY, DIRECTION_RELAY);
 #endif
 Display display(DISPLAY_PIN_CLK, DISPLAY_PIN_DIO);
-Watchdog watchdog(&motor, &display);
-Keypad keypad(&motor, &display);
+Calibration calibration(&motor);
+Watchdog watchdog(&motor, &display, &calibration);
+Keypad keypad(&motor, &display, &calibration);
 
 void setup() {
 #ifdef __DEBUG__
@@ -64,8 +66,7 @@ void setup() {
         eeprom_reset();
 #endif
 
-    delay(1000);
-
+    services.push_back((Service *) &calibration);
     services.push_back((Service *) &watchdog);
     services.push_back((Service *) &keypad);
     services.push_back((Service *) &motor);

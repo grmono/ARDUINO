@@ -37,6 +37,7 @@ After testing quite a few DC motors from Ebay, Aliexpress and Banggood, I stuck 
 
 - **_NOTE_** your table needs to be leveled and manual adjustment shouldn't feel jerky, as it may influence on _mod_ functionality
 - print all parts from [Thingverse](https://www.thingiverse.com/thing:3081839) or download them directly from [models](models)
+  - **_HALL-ENCODER VERSION_** - [hall-adapter.stl](./models/hall-encoder/hall-adapter.stl), [hall-cover.stl](./models/hall-encoder/hall-cover.stl), [hall-mount.stl](./models/hall-encoder/hall-mount.stl) 
   - **_RELAY VERSION_** - all parts were printed in 0.2 mm layer height but 0.3 should be ok for [case-non-modular.stl](models/relay/case-non-modular.stl), for modular parts [case-modular-aio.stl](models/relay/case-modular-aio.stl), [case-modular-cover.stl](models/relay/case-modular-cover.stl) and [case-modular-frame.stl](models/relay/case-modular-frame.stl) 0.2 mm clearance is used so layer height 0.2 mm or lower is recommended
   - **_H-BRIDGE VERSION_** - all parts were printed in 0.2 mm layer height but 0.3 should be ok for [case-non-modular.stl](models/h-bridge/case-non-modular.stl), for modular parts [case-modular-aio.stl](models/h-bridge/case-modular-aio.stl), [case-modular-cover.stl](models/h-bridge/case-modular-cover.stl) and [case-modular-frame.stl](models/h-bridge/case-modular-frame.stl) 0.2 mm clearance is used so layer height 0.2 mm or lower is recommended
   - all parts except for [buttons.stl](models/buttons.stl), [encoder-pulley.stl](models/encoder-pulley.stl), [keypad-connector.stl](models/keypad-connector.stl) and [table-frame-tie.stl](models/table-frame-tie.stl) were printed with supports, but it should work without them...
@@ -46,7 +47,8 @@ After testing quite a few DC motors from Ebay, Aliexpress and Banggood, I stuck 
   - based on your printer accuracy, may be needed pre-drilling of screw holes
 - get electronic parts:
   - [Arduino-Nano](https://www.ebay.com/itm/1PCS-mini-USB-Nano-V3-0-ATmega328P-CH340G-5V-16M-micro-controller-Arduino/191773759569?hash=item2ca69b5851:g:aHAAAOSwLN5WiNjA)
-  - [Rotary encoder](https://www.ebay.com/itm/1PCS-KY-040-Rotary-Encoder-Module-Brick-Sensor-Development-For-Arduino-CA/141975888668?hash=item210e6c231c:g:6aIAAOSwq5lTmbF7)
+  - **_ROTARY-ENCODER VERSION_** - [Rotary encoder](https://www.ebay.com/itm/1PCS-KY-040-Rotary-Encoder-Module-Brick-Sensor-Development-For-Arduino-CA/141975888668?hash=item210e6c231c:g:6aIAAOSwq5lTmbF7)
+  - **_HALL-ENCODER VERSION_** - [HALL-Encoder](https://www.ebay.com/itm/25mm-Magnetic-Hall-Encoder-11PPR-Double-Phase-Output-Square-Wave-For-370-Motor/153185900651?hash=item23aa97586b:m:mm1_KDAqyRf1MNy8Fnof0hA)
   - **_RELAY VERSION_** - [Relay 1ch](https://www.ebay.com/itm/1-2-5-10PCS-5V-One-1-Channel-Relay-Module-Board-Shield-For-Arduino-PIC-AVR-ARM-M/302126861988?hash=item46582a0ea4%3Am%3AmO-uqxnlvpXMQXX-eRxgBwA&var=600944064917)
   - **_RELAY VERSION_** - [Relay 2ch](https://www.ebay.com/itm/5V-Two-2-Channel-Relay-Module-With-optocoupler-For-PIC-AVR-DSP-ARM-Arduino-NEW/281683101414?epid=734905713&hash=item41959f06e6:g:uBQAAOSwhOxVSLJu)
   - **_H-BRIDGE VERSION_** - [H-Bridge](https://www.ebay.com/p/Double-Bts7960b-DC-43a-Stepper-Motor-Driver-H-bridge-PWM-for-Arduino-Smart-Car/1062875951)
@@ -154,6 +156,10 @@ After testing quite a few DC motors from Ebay, Aliexpress and Banggood, I stuck 
   </details>
 - Add hexagonal rod and slowly insert it into table, if needed adjust hole for rod hole with original lever
 - Fix mounted motor case with 7 screws to table
+
+##### **_HALL-Encoder VERSION_** Encoder casse
+
+- WIP
 
 ##### Display + Keypad case
 
